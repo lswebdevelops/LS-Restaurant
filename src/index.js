@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import './style.css';
-import Icon from './kitchen.jpg';
+import Icon from './laughing.svg';
+
 
 
 function component() {
@@ -23,3 +24,27 @@ function component() {
   }
   
   document.body.appendChild(component());
+
+  function printMe() {
+    console.log('I get called from print.js!');
+  }
+  function component2() {
+    const element = document.createElement('div');
+    const btn = document.createElement('button');
+  
+    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  
+
+    btn.innerHTML = 'Click me and check the console!';
+    btn.onclick = printMe;
+  
+    element.appendChild(btn);
+    
+ 
+
+    return element;
+  }
+  
+  document.body.appendChild(component2());
+
+

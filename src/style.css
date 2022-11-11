@@ -9,10 +9,9 @@
 
 .h1 {
     color: red;
-    background: url('./kitchen.jpg');
+    /* background: url('./kitchen.jpg'); */
     border: 2px solid black;
-    width: 750px;
-    height: 350px;
-    
+    /* width: 750px;    */
+    /* background-repeat: no-repeat; */
     
   }
