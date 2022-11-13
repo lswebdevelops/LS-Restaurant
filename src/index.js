@@ -13,7 +13,7 @@ let random1to6_1 = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
 let random1to6_2 = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
 
 
-const para = document.getElementById('content')
+const content = document.getElementById('content')
 const recepies = {
   optionDish1: 'ANTIPASTO PLATE WITH OLIVES, PARMIGIANO, MORTADELLA, SPICY COPPA, AND PROSCIUTTO',
   optionDish2: 'OLIVES ',
@@ -63,7 +63,7 @@ const recepies = {
 
 // create nav bar and buttons:
 function addNav(){
- 
+  
 
   function paragh() {
 
@@ -76,7 +76,7 @@ function addNav(){
 
 }
 
-para.appendChild(paragh());
+content.appendChild(paragh());
 //  creating the supperior div:
 
 function divtop() {
@@ -87,7 +87,7 @@ function divtop() {
     element.classList.add('divTop');
     return element;
 }
-para.appendChild(divtop());
+content.appendChild(divtop());
 const divTop = document.querySelector('.divTop')
 //  creating the inner supperior buttons:
 function innerDivtop() {
@@ -118,9 +118,16 @@ divTop.appendChild(innerDivtop3());
 
 
 }
+// adding buttons:
 addNav()
-// delete all below id='content' when a button dinner, lunch or beverage is clicked
+//adding today's date:
+addDate()
+content.appendChild(addDate());
+const addToDateElement = document.querySelector('.dateElement');
+
+
 function deleteContent(){
+  // delete all below id='content' when a button dinner, lunch or beverage is clicked
   function empty(element) {
     while(element.firstElementChild) {
        element.firstElementChild.remove();
@@ -128,95 +135,177 @@ function deleteContent(){
     
   }
   
-  let parent = document.getElementById("content");
+  let parent = document.querySelector(".dateElement");
   empty(parent);
-  addNav()
+ 
 }
 
-  // event listeners for buttons: dinner, lunch and beverages
-let buttonLunchEvent = document.querySelector('.innerDiv1').addEventListener('click', buttonDinner)
-let buttonLunchEvent2 = document.querySelector('.innerDiv2').addEventListener('click', buttonLunch)
-let buttonBeverageEvent3 = document.querySelector('.innerDiv3').addEventListener('click', buttonBeverage)
-// clicking the button Dinner: 
-function buttonDinner(e){
-  deleteContent()
-  //  adding text below the top divs:
+function first() {
+  const element = document.createElement('p');
+  // Lodash, now imported by this script
+  element.innerText = _.join([`FIRST`], ' ');
+  element.classList.add('servings');
+  return element;
+}
 
-  function paragh2() {
-  
-      const element = document.createElement('p');
-  
-      // Lodash, now imported by this script
-      element.innerText = _.join([`WE OFFER LOAVES OF DELICIOUS SHE WOLF BREAD FOR \nSALE \nMON-FRI BEGINNING AT 5PM, AND SAT-SUN BEGINNING AT \nNOON. \nAVAILABLE WHILE SUPPLIES LAST.`], ' ');
-      element.classList.add('p2');
-      return element;
-  
-  }
-  para.appendChild(paragh2());
-  
-  function paraDate() {
-  
-    const element = document.createElement('p');
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
-  
-  let today = new Date();
-    // Lodash, now imported by this script
-    element.innerText = _.join([`${ monthNames[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}`], ' ');
-    element.classList.add('p3');
-    return element;
-  
-  }
-  para.appendChild(paraDate());
-  
-  // defining the first, second, third and dessert: 
+function second() {
+  const element = document.createElement('p');
+  // Lodash, now imported by this script
+  element.innerText = _.join([`SECOND`], ' ');
+  element.classList.add('servings');
+  return element;
+}
 
-  function first() {
-    const element = document.createElement('p');
-    // Lodash, now imported by this script
-    element.innerText = _.join([`FIRST`], ' ');
-    element.classList.add('servings');
-    return element;
-  }
-  para.appendChild(first());
-  pricesDishes()
-  function second() {
-    const element = document.createElement('p');
-    // Lodash, now imported by this script
-    element.innerText = _.join([`SECOND`], ' ');
-    element.classList.add('servings');
-    return element;
-  }
-  para.appendChild(second());
-  pricesDishes()
-  function third() {
-    const element = document.createElement('p');
-    // Lodash, now imported by this script
-    element.innerText = _.join([`THIRD`], ' ');
-    element.classList.add('servings');
-    return element;
-  }
-  para.appendChild(third());
-  pricesDishes()
+function third() {
+  const element = document.createElement('p');
+  // Lodash, now imported by this script
+  element.innerText = _.join([`THIRD`], ' ');
+  element.classList.add('servings');
+  return element;
+}
+
+function dessert() {
+  const element = document.createElement('p');
+  // Lodash, now imported by this script
+  element.innerText = _.join([`DESSERT`], ' ');
+  element.classList.add('servings');
+  return element;
+}
+
+function pricesDishes(){
+//dish: 
+const element1 = document.createElement('p');
+  // Lodash, now imported by this script
+  element1.innerText = _.join([`${recepies[`optionDish${random1to17}`]}` ], ' ');
+  element1.classList.add('p2');
+  addToDateElement.appendChild(element1);
+
+ 
+ // create a random price:
+ let random = Math.floor(Math.random() * (9 - 5 + 1)) + 5;
+// price: 
+ const price1 = document.createElement('p');
+  // Lodash, now imported by this script
+  price1.innerText = _.join([`$${random}`], ' ');
+  price1.classList.add('p4');
+  addToDateElement.appendChild(price1);
+
+
+//dish: 
+
+const element2 = document.createElement('p');
+  // Lodash, now imported by this script
+  element2.innerText = _.join([`${recepies[`optionDish${random1to17_1}`]}` ], ' ');
+  element2.classList.add('p2');
+  addToDateElement.appendChild(element2);
+ // create a random price:
+ let random2 = Math.floor(Math.random() * (25 - 15 + 1)) + 15;
+ // price: 
+const price2 = document.createElement('p');
+// Lodash, now imported by this script
+price2.innerText = _.join([`$${random2}`], ' ');
+price2.classList.add('p4');
+addToDateElement.appendChild(price2);
+
+//dish3: 
+
+const element3 = document.createElement('p');
+  // Lodash, now imported by this script
+  element3.innerText = _.join([`${recepies[`optionDish${random1to17_2}`]}` ], ' ');
+  element3.classList.add('p2');
+  addToDateElement.appendChild(element3);
+ // create a random price:
+ let random3 = Math.floor(Math.random() * (25 - 15 + 1)) + 15;
+ // price: 
+const price3 = document.createElement('p');
+// Lodash, now imported by this script
+price3.innerText = _.join([`$${random3}`], ' ');
+price3.classList.add('p4');
+addToDateElement.appendChild(price3);
+}
+
+function addDate() {
   
-  function dessert() {
-    const element = document.createElement('p');
-    // Lodash, now imported by this script
-    element.innerText = _.join([`DESSERT`], ' ');
-    element.classList.add('servings');
-    return element;
-  }
-  para.appendChild(dessert());
-  pricesDishesDesserts()
+  const element = document.createElement('p');
   
-  function pricesDishes(){
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
+let today = new Date();
+  // Lodash, now imported by this script
+  element.innerText = _.join([`${ monthNames[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}`], ' ');
+  element.classList.add('p3');
+  element.classList.add('dateElement');
+   return element;
+
+}
+
+function addingDish(){
+  const element2 = document.createElement('p');
+    // Lodash, now imported by this script
+  element2.innerText = _.join([`${recepies[`optionDish${random1to17_1}`]}` ], ' ');
+  element2.classList.add('p2');
+  addToDateElement.appendChild(element2);
+   // create a random price:
+   let random2 = Math.floor(Math.random() * (25 - 15 + 1)) + 15;
+   // price: 
+  const price2 = document.createElement('p');
+  // Lodash, now imported by this script
+  price2.innerText = _.join([`$${random2}`], ' ');
+  price2.classList.add('p4');
+  addToDateElement.appendChild(price2);
+}
+
+function addDish2(){
+  const element3 = document.createElement('p');
+    // Lodash, now imported by this script
+    element3.innerText = _.join([`${recepies[`optionDish${random1to17_2}`]}` ], ' ');
+    element3.classList.add('p2');
+    addToDateElement.appendChild(element3);
+   // create a random price:
+   let random3 = Math.floor(Math.random() * (25 - 15 + 1)) + 15;
+   // price: 
+  const price3 = document.createElement('p');
+  // Lodash, now imported by this script
+  price3.innerText = _.join([`$${random3}`], ' ');
+  price3.classList.add('p4');
+  addToDateElement.appendChild(price3);
+}
+
+function addDish3(){
+  const element3 = document.createElement('p');
+  // Lodash, now imported by this script
+  element3.innerText = _.join([`${recepies[`dessert${random1to6_1}`]}` ], ' ');
+  element3.classList.add('p2');
+  addToDateElement.appendChild(element3);
+ // create a random price:
+ let random3 = Math.floor(Math.random() * (25 - 15 + 1)) + 15;
+ // price: 
+const price3 = document.createElement('p');
+// Lodash, now imported by this script
+price3.innerText = _.join([`$${random3}`], ' ');
+price3.classList.add('p4');
+addToDateElement.appendChild(price3);
+}
+
+function addExtraInfo() {
+  
+  const element = document.createElement('p');
+
+  // Lodash, now imported by this script
+  element.innerText = _.join([`WE OFFER LOAVES OF DELICIOUS SHE WOLF BREAD FOR \nSALE \nMON-FRI BEGINNING AT 5PM, AND SAT-SUN BEGINNING AT \nNOON. \nAVAILABLE WHILE SUPPLIES LAST.`], ' ');
+  element.classList.add('p2');
+  return element;
+
+}
+function pricesDishesDesserts(){
   //dish: 
   const element1 = document.createElement('p');
     // Lodash, now imported by this script
-    element1.innerText = _.join([`${recepies[`optionDish${random1to17}`]}` ], ' ');
+    element1.innerText = _.join([`${recepies[`dessert${random1to6}`]}` ], ' ');
     element1.classList.add('p2');
-   para.appendChild(element1);
+    addToDateElement.appendChild(element1);
   
    
    // create a random price:
@@ -226,16 +315,16 @@ function buttonDinner(e){
     // Lodash, now imported by this script
     price1.innerText = _.join([`$${random}`], ' ');
     price1.classList.add('p4');
-   para.appendChild(price1);
+    addToDateElement.appendChild(price1);
   
   
   //dish: 
   
   const element2 = document.createElement('p');
     // Lodash, now imported by this script
-    element2.innerText = _.join([`${recepies[`optionDish${random1to17_1}`]}` ], ' ');
+    element2.innerText = _.join([`${recepies[`dessert${random1to6_2}`]}` ], ' ');
     element2.classList.add('p2');
-   para.appendChild(element2);
+    addToDateElement.appendChild(element2);
    // create a random price:
    let random2 = Math.floor(Math.random() * (25 - 15 + 1)) + 15;
    // price: 
@@ -243,15 +332,15 @@ function buttonDinner(e){
   // Lodash, now imported by this script
   price2.innerText = _.join([`$${random2}`], ' ');
   price2.classList.add('p4');
-  para.appendChild(price2);
+  addToDateElement.appendChild(price2);
   
   //dish3: 
   
   const element3 = document.createElement('p');
     // Lodash, now imported by this script
-    element3.innerText = _.join([`${recepies[`optionDish${random1to17_2}`]}` ], ' ');
+    element3.innerText = _.join([`${recepies[`dessert${random1to6_1}`]}` ], ' ');
     element3.classList.add('p2');
-   para.appendChild(element3);
+    addToDateElement.appendChild(element3);
    // create a random price:
    let random3 = Math.floor(Math.random() * (25 - 15 + 1)) + 15;
    // price: 
@@ -259,57 +348,35 @@ function buttonDinner(e){
   // Lodash, now imported by this script
   price3.innerText = _.join([`$${random3}`], ' ');
   price3.classList.add('p4');
-  para.appendChild(price3);
-  }
-  function pricesDishesDesserts(){
-    //dish: 
-    const element1 = document.createElement('p');
-      // Lodash, now imported by this script
-      element1.innerText = _.join([`${recepies[`dessert${random1to6}`]}` ], ' ');
-      element1.classList.add('p2');
-     para.appendChild(element1);
-    
-     
-     // create a random price:
-     let random = Math.floor(Math.random() * (9 - 5 + 1)) + 5;
-    // price: 
-     const price1 = document.createElement('p');
-      // Lodash, now imported by this script
-      price1.innerText = _.join([`$${random}`], ' ');
-      price1.classList.add('p4');
-     para.appendChild(price1);
-    
-    
-    //dish: 
-    
-    const element2 = document.createElement('p');
-      // Lodash, now imported by this script
-      element2.innerText = _.join([`${recepies[`dessert${random1to6_2}`]}` ], ' ');
-      element2.classList.add('p2');
-     para.appendChild(element2);
-     // create a random price:
-     let random2 = Math.floor(Math.random() * (25 - 15 + 1)) + 15;
-     // price: 
-    const price2 = document.createElement('p');
-    // Lodash, now imported by this script
-    price2.innerText = _.join([`$${random2}`], ' ');
-    price2.classList.add('p4');
-    para.appendChild(price2);
-    
-    //dish3: 
-    
-    const element3 = document.createElement('p');
-      // Lodash, now imported by this script
-      element3.innerText = _.join([`${recepies[`dessert${random1to6_1}`]}` ], ' ');
-      element3.classList.add('p2');
-     para.appendChild(element3);
-     // create a random price:
-     let random3 = Math.floor(Math.random() * (25 - 15 + 1)) + 15;
-     // price: 
-    const price3 = document.createElement('p');
-    // Lodash, now imported by this script
-    price3.innerText = _.join([`$${random3}`], ' ');
-    price3.classList.add('p4');
-    para.appendChild(price3);
-  }
+  addToDateElement.appendChild(price3);
+}
+
+
+// event listeners for buttons: dinner, lunch and beverages
+let buttonLunchEvent = document.querySelector('.innerDiv1').addEventListener('click', buttonDinner);
+
+// clicking the button Dinner: 
+function buttonDinner(e){
+  console.log('Dinner');
+  deleteContent()
+  first() 
+  addToDateElement.appendChild(first());
+  
+}
+
+let buttonLunchEvent2 = document.querySelector('.innerDiv2').addEventListener('click', buttonLunch);
+function buttonLunch(e){
+  console.log('Lunch');
+  deleteContent()
+  second() 
+  addToDateElement.appendChild(second());
+  
+}
+let buttonBeverageEvent3 = document.querySelector('.innerDiv3').addEventListener('click', buttonBeverage);
+function buttonBeverage(e){
+  console.log('Beverage');
+  deleteContent()
+  third() 
+  addToDateElement.appendChild(third());
+  
 }
