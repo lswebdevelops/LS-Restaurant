@@ -503,9 +503,6 @@ function buttonLunch(e){
    
   deleteContent()
 
-  addExtraInfo()
-  addToDateElement.appendChild(addExtraInfo());
-
   first() 
   addToDateElement.appendChild(first());
   addDish1()
