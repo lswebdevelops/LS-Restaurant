@@ -468,28 +468,23 @@ function buttonDinner(e){
   
   deleteContent()
 
-  addExtraInfo()
   addToDateElement.appendChild(addExtraInfo());
 
-  first() 
   addToDateElement.appendChild(first());
   addDish1()
   addDish2()
   addDish3()
 
-  second() 
   addToDateElement.appendChild(second());
   addDish1()
   addDish2()
   addDish3()
 
-  third() 
   addToDateElement.appendChild(third());
   addDish1()
   addDish2()
   addDish3()
 
-  dessert()
   addToDateElement.appendChild(dessert());
   addDessert()
   addDessert2()
@@ -503,25 +498,21 @@ function buttonLunch(e){
    
   deleteContent()
 
-  first() 
   addToDateElement.appendChild(first());
   addDish1()
   addDish2()
   addDish3()
 
-  second() 
   addToDateElement.appendChild(second());
   addDish1()
   addDish2()
   addDish3()
 
-  third() 
   addToDateElement.appendChild(third());
   addDish1()
   addDish2()
   addDish3()
 
-  dessert()
   addToDateElement.appendChild(dessert());
   addDessert()
   addDessert2()
@@ -534,15 +525,12 @@ function buttonBeverage(e){
  
   deleteContent()
   
-  white() 
   addToDateElement.appendChild(white());
   pricesWhiteWines()
  
-  red()
   addToDateElement.appendChild(red());
   pricesRedWines()
 
-  sparkling() 
   addToDateElement.appendChild(sparkling());
   pricesSparkWines()
 
